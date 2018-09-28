@@ -129,7 +129,6 @@
 
                 int dy = Math.abs(verticalOffset);
 
-
                 if (dy <= toolbarHeight) {
 
                     float scale = (float) dy / toolbarHeight;
@@ -137,10 +136,9 @@
 
                     mFLayout.setBackgroundColor(Color.argb((int) alpha, 255, 64, 129));
                 }
-
-//                //第二种
-//                mFLayout.setAlpha(percent);
+              //                //第二种
+              //                mFLayout.setAlpha(percent);
               }
             });
-        }
-    }
+         }
+     }
