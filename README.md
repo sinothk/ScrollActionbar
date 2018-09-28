@@ -1,3 +1,5 @@
+ # XML文件：   
+    
     <?xml version="1.0" encoding="utf-8"?>
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -100,3 +102,45 @@
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>
+
+ # Java 文件 风格1/风格2
+    public class ScrollActionbarStyle1Activity extends AppCompatActivity {
+    View mFLayout;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ViewUtils.setImmersionStateMode(this);
+
+        //ViewUtils.addStatuHeight(findViewById(R.id.fl_layout),this);
+
+        AppBarLayout mAppBarLayout =  findViewById(R.id.appbar);
+        mFLayout =  findViewById(R.id.fl_layout);
+
+        mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+
+                float percent = Float.valueOf(Math.abs(verticalOffset)) / Float.valueOf(appBarLayout.getTotalScrollRange());
+
+                //第一种
+                int toolbarHeight = appBarLayout.getTotalScrollRange();
+
+                int dy = Math.abs(verticalOffset);
+
+
+                if (dy <= toolbarHeight) {
+
+                    float scale = (float) dy / toolbarHeight;
+                    float alpha = scale * 255;
+
+                    mFLayout.setBackgroundColor(Color.argb((int) alpha, 255, 64, 129));
+                }
+
+//                //第二种
+//                mFLayout.setAlpha(percent);
+              }
+            });
+        }
+    }
