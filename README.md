@@ -1,144 +1,19 @@
- # XML文件：   
-    
-    <?xml version="1.0" encoding="utf-8"?>
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/appbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+# Step 1. Add the JitPack repository to your build file
 
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+   Add it in your root build.gradle at the end of repositories:
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_back" />
+   allprojects {
+    repositories {
+     ...
+     maven { url 'https://jitpack.io' }
+    }
+   }
+   
+# Step 2. Add the dependency
 
-                <!--标题 -->
-                <android.support.v7.widget.Toolbar
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    app:contentInsetStart="0dp"
-                    app:layout_collapseMode="pin">
+  dependencies {
+          implementation 'com.github.sinothk:ScrollActionbar:1.0.0929'
+  }
 
-                    <FrameLayout
-                        android:id="@+id/fl_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:paddingTop="25dp"
-                        app:layout_collapseMode="pin">
-
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:background="@android:color/holo_green_light">
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@null"
-                                android:hint="@string/app_name"
-                                android:padding="5dp"
-                                android:textColorHint="#999999" />
-                        </FrameLayout>
-                    </FrameLayout>
-                </android.support.v7.widget.Toolbar>
-
-            </android.support.design.widget.CollapsingToolbarLayout>
-        </android.support.design.widget.AppBarLayout>
-
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/n_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FEFEFE"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_info"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#909090"
-                    android:lineSpacingExtra="5dp"
-                    android:text="Hello"
-                    android:textColor="#FF0000"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hello"
-                    android:textColor="#0f0"
-                    android:textSize="200sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hello"
-                    android:textColor="#0f0"
-                    android:textSize="200sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hello"
-                    android:textColor="#0f0"
-                    android:textSize="200sp" />
-            </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
-    </android.support.design.widget.CoordinatorLayout>
-
- # Java 文件 风格1/风格2
-    public class ScrollActionbarStyle1Activity extends AppCompatActivity {
-    View mFLayout;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        ViewUtils.setImmersionStateMode(this);
-
-        //ViewUtils.addStatuHeight(findViewById(R.id.fl_layout),this);
-
-        AppBarLayout mAppBarLayout =  findViewById(R.id.appbar);
-        mFLayout =  findViewById(R.id.fl_layout);
-
-        mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-
-                float percent = Float.valueOf(Math.abs(verticalOffset)) / Float.valueOf(appBarLayout.getTotalScrollRange());
-
-                //第一种
-                int toolbarHeight = appBarLayout.getTotalScrollRange();
-
-                int dy = Math.abs(verticalOffset);
-
-                if (dy <= toolbarHeight) {
-
-                    float scale = (float) dy / toolbarHeight;
-                    float alpha = scale * 255;
-
-                    mFLayout.setBackgroundColor(Color.argb((int) alpha, 255, 64, 129));
-                }
-              //                //第二种
-              //                mFLayout.setAlpha(percent);
-              }
-            });
-         }
-     }
+# 使用
+  见Wiki
