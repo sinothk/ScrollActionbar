@@ -1,11 +1,11 @@
 package com.sinothk.widget.scrollActionBar.demo;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+
+import com.sinothk.widget.scrollActionbar.uitls.ViewUtils;
 
 public class ScrollActionbarStyle2Activity extends AppCompatActivity {
 

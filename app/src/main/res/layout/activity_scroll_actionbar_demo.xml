@@ -31,4 +31,15 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="74dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="gotoScrollViewDemoMainActivity"
+        android:text="风格2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="74dp" />
+
 </LinearLayout>

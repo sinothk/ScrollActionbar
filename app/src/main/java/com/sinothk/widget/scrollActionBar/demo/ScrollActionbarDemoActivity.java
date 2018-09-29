@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.sinothk.widget.scrollActionBar.scrollView.ScrollViewDemoMainActivity;
+
 public class ScrollActionbarDemoActivity extends AppCompatActivity {
 
     @Override
@@ -19,5 +21,9 @@ public class ScrollActionbarDemoActivity extends AppCompatActivity {
 
     public void gotoStyle2(View view) {
         startActivity(new Intent(this, ScrollActionbarStyle2Activity.class));
+    }
+
+    public void gotoScrollViewDemoMainActivity(View view) {
+        startActivity(new Intent(this, ScrollViewDemoMainActivity.class));
     }
 }

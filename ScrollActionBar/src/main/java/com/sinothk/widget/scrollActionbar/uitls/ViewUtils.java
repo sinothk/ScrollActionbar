@@ -1,4 +1,4 @@
-package com.sinothk.widget.scrollActionBar.demo;
+package com.sinothk.widget.scrollActionbar.uitls;
 
 import android.app.Activity;
 import android.content.Context;
@@ -333,7 +333,9 @@ public class ViewUtils {
      * @param activity
      */
     public static void setImmersionStateMode(Activity activity) {
+
         StatusBarLightMode(activity);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT != Build.VERSION_CODES.LOLLIPOP) {
             // 透明状态栏
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);

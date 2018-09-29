@@ -6,6 +6,8 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.sinothk.widget.scrollActionbar.uitls.ViewUtils;
+
 public class ScrollActionbarStyle1Activity extends AppCompatActivity {
 
     View mFLayout;
