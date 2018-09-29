@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
         android:onClick="gotoStyle1"
-        android:text="风格1"
+        android:text="Android自带:风格1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:onClick="gotoStyle2"
-        android:text="风格2"
+        android:text="Android自带:风格2"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="74dp" />
@@ -37,7 +37,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:onClick="gotoScrollViewDemoMainActivity"
-        android:text="风格2"
+        android:text="自定义ScrollView：线性布局使用"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="74dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="geScrollViewDemoRecycleViewMainActivity"
+        android:text="自定义ScrollView：嵌套RecycleView"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="74dp" />

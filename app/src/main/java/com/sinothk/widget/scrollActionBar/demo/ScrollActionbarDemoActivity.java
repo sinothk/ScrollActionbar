@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.sinothk.widget.scrollActionBar.scrollView.ScrollViewDemoMainActivity;
+import com.sinothk.widget.scrollActionBar.scrollView.ScrollViewDemoRecycleViewMainActivity;
 
 public class ScrollActionbarDemoActivity extends AppCompatActivity {
 
@@ -25,5 +26,9 @@ public class ScrollActionbarDemoActivity extends AppCompatActivity {
 
     public void gotoScrollViewDemoMainActivity(View view) {
         startActivity(new Intent(this, ScrollViewDemoMainActivity.class));
+    }
+
+    public void geScrollViewDemoRecycleViewMainActivity(View view) {
+        startActivity(new Intent(this, ScrollViewDemoRecycleViewMainActivity.class));
     }
 }

@@ -27,6 +27,10 @@
         <activity
             android:name="com.sinothk.widget.scrollActionBar.scrollView.ScrollViewDemoMainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name="com.sinothk.widget.scrollActionBar.scrollView.ScrollViewDemoRecycleViewMainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
