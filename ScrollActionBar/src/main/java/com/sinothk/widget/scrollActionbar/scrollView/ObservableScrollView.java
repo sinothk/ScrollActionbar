@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.DebugUtils;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -76,6 +77,10 @@ public class ObservableScrollView extends ScrollView {
     /**
      * ======================================================================================================
      */
+    /**
+     * @param topView
+     * @param onOperateListener
+     */
     public void setOnScrollChanging(final ImageView topView, final OnOperateListener onOperateListener) {
         // 获取顶部图片高度后，设置滚动监听
         ViewTreeObserver vto = topView.getViewTreeObserver();
@@ -135,6 +140,43 @@ public class ObservableScrollView extends ScrollView {
 //                            //黑色
 //                            textview.setTextColor(Color.argb((int) 255, 255, 255, 255));
 //                            Log.i("111", "else");
+                        }
+                    }
+                });
+
+            }
+        });
+    }
+
+    /**
+     * @param topView
+     * @param onOperateListener
+     */
+    public void setOnScrollChanging(final View topView, final OnOperateListener onOperateListener) {
+        // 获取顶部图片高度后，设置滚动监听
+        ViewTreeObserver vto = topView.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                topView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
+                final int topViewHeight = topView.getHeight();
+
+                scrollView.setScrollViewListener(new ObservableScrollView.ScrollViewListener() {
+                    @Override
+                    public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
+
+                        if (y <= 0) {
+                            onOperateListener.onStart();
+
+                        } else if (y <= topViewHeight) {
+
+                            float scale = (float) y / topViewHeight;
+                            float alpha = (255 * scale);
+
+                            onOperateListener.onChanging(alpha);
+                        } else {
+                            onOperateListener.onEnd();
                         }
                     }
                 });
